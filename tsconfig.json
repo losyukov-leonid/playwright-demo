@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "target": "es2021",
+    "lib": ["es2016", "es2017", "es2018", "es2019", "es2020", "es2021", "dom"],
+    "types": ["node"],
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitAny": false,
+    "strictPropertyInitialization": false,
+    "skipLibCheck": true,
+    "paths": {
+      "@components/*": ["src/pageobjects/components/*"],
+      "@pageobjects/*": ["src/pageobjects/*"]
+    }
+  },
+  "include": [
+    "src/**/*.ts",
+    "playwright.config.ts"
+  ],
+  "exclude": ["node_modules"]
+}
