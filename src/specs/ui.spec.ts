@@ -53,3 +53,28 @@ test.describe('Check login with cookies', () => {
     await footer.expectFooterVisible();
   });
 });
+
+test.describe('Check multi tab', () => {
+  test.beforeEach(async ({ homePage }) => {
+    await homePage.navigateTo();
+  });
+
+  test('check visibility', async ({ page, header, homePage, footer }) => {
+    // Create second tab context + navigate
+    const secondPage = await page.context().newPage();
+    const secondLoginPage = new LoginPage(secondPage);
+    const secondTabHeader = new Header(secondPage);
+    const secondTabFooter = new Footer(secondPage);
+    await secondLoginPage.navigateTo();
+
+    // Check first tab page visibility
+    await homePage.expectPageVisible();
+    await header.expectHeaderVisible();
+    await footer.expectFooterVisible();
+
+    // Check second tab page visibility
+    await secondLoginPage.expectPageVisible();
+    await secondTabHeader.expectHeaderVisible();
+    await secondTabFooter.expectFooterVisible();
+  });
+});

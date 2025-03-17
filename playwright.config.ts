@@ -13,6 +13,8 @@ export default defineConfig({
     headless: true,
     testIdAttribute: 'data-qa'
   },
+  workers: process.env.WORKERS ? parseInt(process.env.WORKERS!, 10) : 4,
+  fullyParallel: true,
   globalSetup: require.resolve('./global-setup'),
   projects: [
     {
