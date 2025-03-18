@@ -12,7 +12,7 @@
     "ncu": "ncu --reject \"/.*(eslint|prettier).*/\"",
     "ncu:u": "ncu --reject \"/.*(eslint|prettier).*/\" -u",
     "test": "npx playwright test",
-    "test:debug": "npx playwright test --debug",
+    "test:debug": "npx playwright test src/specs/ui.spec.ts:26 --debug --project=iPhone",
     "allure": "allure generate ./allure-results -o ./allure-report && allure open ./allure-report"
   },
   "dependencies": {
